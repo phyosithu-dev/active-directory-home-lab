@@ -57,7 +57,7 @@ This project demonstrates the deployment of a Windows Server Active Directory en
 * Assigned Static IP Address
 * Installed Active Directory Domain Services
 * Created New Forest
-* Created Domain: corp.local
+* Created Domain: lab.local
 * Promoted DC01 to Domain Controller
 * Installed DNS Server
 
@@ -92,10 +92,6 @@ This project demonstrates the deployment of a Windows Server Active Directory en
 ## Screenshots
 
 Screenshots can be found in the `/screenshots` directory.
-
-## Documentation
-
-Detailed project documentation can be found in the `/documentation` directory.
 
 ## Learning Outcomes
 
