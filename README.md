@@ -1,170 +1,122 @@
-Active Directory Home Lab Documentation
-Project Title
+# Active Directory Home Lab
 
-Windows Server Active Directory Home Lab
+## Overview
 
-Project Goal
+This project demonstrates the deployment of a Windows Server Active Directory environment using VirtualBox. The purpose of this lab is to gain practical experience with common IT Support and System Administration tasks such as server installation, Active Directory deployment, DNS configuration, user management, and domain administration.
 
-The goal of this project is to build a small business-style IT environment using VirtualBox, Windows Server, and Active Directory. This lab is designed to practise real IT Support tasks such as server setup, user management, DNS configuration, and domain controller deployment.
+## Project Objectives
 
-Tools Used
-VirtualBox
-Windows Server ISO
-Host PC with 32GB RAM
-Ryzen 5 7600 CPU
-Local Disk D: for VM storage
-Step 1: Created Windows Server Virtual Machine
+* Build a Windows Server lab environment using VirtualBox
+* Configure a Domain Controller
+* Deploy Active Directory Domain Services (AD DS)
+* Configure DNS services
+* Create and manage users and groups
+* Join Windows 11 clients to the domain
+* Simulate common IT Support tasks and troubleshooting scenarios
+* Document all configuration steps and findings
 
-A new virtual machine was created in VirtualBox.
+## Environment
 
-VM Name: DC01
-Purpose: Domain Controller
-RAM: 8GB
-CPU: 2 cores
-Storage: 80GB dynamically allocated
-Location: D: drive
+### Host Machine
 
-The Windows Server ISO was attached to the VM and used to install Windows Server.
+* CPU: AMD Ryzen 5 7600
+* RAM: 32 GB
+* Storage: 400 GB available on Local Disk D:
 
-Step 2: Installed Windows Server
+### Virtualization Platform
 
-Windows Server was installed successfully inside VirtualBox.
+* VirtualBox
 
-During installation, the Desktop Experience version was selected so the server could be managed using the graphical interface instead of Server Core.
+### Virtual Machines
 
-After installation, the Administrator account was created and the server was booted successfully.
+#### DC01
 
-Step 3: Renamed the Server
+* Operating System: Windows Server
+* Role: Domain Controller
+* RAM: 8 GB
+* CPU: 2 vCPUs
+* Disk: 80 GB
 
-The server was renamed to:
+#### CLIENT01 (Planned)
 
-DC01
+* Operating System: Windows 11
+* Role: Domain-Joined Workstation
+* RAM: 8 GB
+* CPU: 2 vCPUs
+* Disk: 60 GB
 
-Reason:
-DC stands for Domain Controller, and 01 means it is the first domain controller in the lab. This follows real-world server naming conventions.
+## Project Progress
 
-Step 4: Configured VirtualBox Network
+### Completed
 
-The VM network adapter was changed to:
+* Installed VirtualBox
+* Created Windows Server virtual machine
+* Installed Windows Server
+* Renamed server to DC01
+* Configured Host-Only Networking
+* Assigned Static IP Address
+* Installed Active Directory Domain Services
+* Created New Forest
+* Created Domain: corp.local
+* Promoted DC01 to Domain Controller
+* Installed DNS Server
 
-Host-Only Adapter
+### In Progress
 
-Reason:
-A Host-Only network creates a private lab network between the virtual machines. This allows the Windows Server and future Windows 11 client machine to communicate without affecting the real home Wi-Fi network.
+* Active Directory User Management
+* Organizational Units (OUs)
+* Security Groups
 
-Step 5: Configured Static IP Address
+### Planned
 
-A static IP address was configured on DC01:
+* Windows 11 Client Deployment
+* Domain Join Process
+* Group Policy Configuration
+* Password Reset Scenarios
+* User Account Management
+* Help Desk Ticket Simulations
+* DNS Troubleshooting
+* Network Troubleshooting
 
-IP Address: 192.168.56.10
-Subnet Mask: 255.255.255.0
-Default Gateway: blank
-Preferred DNS: 192.168.56.10
+## Skills Demonstrated
 
-Reason:
-A Domain Controller should have a static IP address because clients need a consistent address to locate Active Directory and DNS services. If the IP changed after restart, client computers might not be able to find the domain controller.
+* Windows Server Administration
+* Active Directory Administration
+* DNS Configuration
+* Virtualization
+* Network Configuration
+* User and Group Management
+* IT Troubleshooting
+* Documentation
 
-Step 6: Installed Active Directory Domain Services
+## Screenshots
 
-Using Server Manager:
+Screenshots can be found in the `/screenshots` directory.
 
-Manage → Add Roles and Features
+## Documentation
 
-The following role was installed:
+Detailed project documentation can be found in the `/documentation` directory.
 
-Active Directory Domain Services
+## Learning Outcomes
 
-Reason:
-Active Directory Domain Services allows the server to manage users, computers, groups, authentication, passwords, and policies in a centralized domain environment.
+This project is designed to develop practical skills commonly used in entry-level IT Support, Service Desk, and System Administrator roles.
 
-Step 7: Promoted Server to Domain Controller
+Key concepts learned:
 
-After installing AD DS, the server was promoted to a Domain Controller.
+* Active Directory
+* Domain Controllers
+* Authentication and Authorization
+* DNS Services
+* Static IP Configuration
+* User Account Management
+* Group Management
+* Windows Server Administration
 
-The selected option was:
+## Future Improvements
 
-Add a new forest
-
-Reason:
-This was the first domain controller in the lab, so a new forest and domain had to be created.
-
-Step 8: Created New Domain
-
-A new domain was created:
-
-corp.local
-
-Reason:
-This domain represents a small company-style network. Future users and computers will join this domain.
-
-Example future login:
-
-phyo@corp.local
-Step 9: Domain Controller Options
-
-The following options were selected:
-
-DNS Server: Enabled
-Global Catalog: Enabled
-Read-Only Domain Controller: Disabled
-DNS Server
-
-DNS was enabled because Active Directory depends on DNS. Client computers use DNS to locate the domain controller.
-
-Global Catalog
-
-Global Catalog was enabled because it helps Active Directory locate users, groups, and other objects in the domain.
-
-Read-Only Domain Controller
-
-This was disabled because the lab needs a full domain controller that can create users, reset passwords, and manage policies.
-
-Step 10: DNS Delegation Warning
-
-A DNS delegation warning appeared during setup.
-
-This warning was ignored because this is a home lab and there is no existing parent DNS zone.
-
-Reason:
-DNS delegation is only needed in larger environments where a new domain is being added under an existing DNS structure.
-
-Step 11: Installation Completed
-
-The Active Directory Domain Services installation completed successfully and the server restarted.
-
-After restart, DC01 became a fully working Domain Controller.
-
-Current Lab Status
-
-Completed:
-
-VirtualBox installed
-Windows Server installed
-Server renamed to DC01
-Host-Only network configured
-Static IP configured
-Active Directory Domain Services installed
-New forest created
-Domain created: corp.local
-DC01 promoted to Domain Controller
-Skills Practised
-Virtual machine creation
-Windows Server installation
-Server naming conventions
-Static IP configuration
-Host-only networking
-Active Directory installation
-Domain Controller promotion
-DNS role understanding
-Domain and forest creation
-Next Steps
-
-The next stage of the project will be:
-
-Create Organizational Units
-Create user accounts
-Create security groups
-Install Windows 11 client VM
-Join CLIENT01 to corp.local domain
-Test domain user login
-Simulate help desk tickets
+* Deploy additional client machines
+* Configure DHCP services
+* Create Group Policy Objects (GPOs)
+* Implement file shares and permissions
+* Simulate real-world support tickets
+* Expand to a multi-server environment
