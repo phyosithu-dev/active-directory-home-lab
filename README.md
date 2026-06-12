@@ -108,11 +108,195 @@ Key concepts learned:
 * Group Management
 * Windows Server Administration
 
-## Future Improvements
+# User and Group Management
 
-* Deploy additional client machines
-* Configure DHCP services
-* Create Group Policy Objects (GPOs)
-* Implement file shares and permissions
-* Simulate real-world support tickets
-* Expand to a multi-server environment
+## Overview
+
+This section documents the creation and management of Organizational Units (OUs), user accounts, and security groups within the Active Directory environment.
+
+The objective is to simulate a real company structure and demonstrate common IT Support administration tasks.
+
+---
+
+## Organizational Units (OUs)
+
+Organizational Units were created to organize users by department.
+
+### Created OUs
+
+```text
+corp.local
+│
+├── IT
+├── HR
+└── Sales
+```
+
+### Purpose
+
+Organizational Units help administrators:
+
+* Organize users and computers
+* Apply Group Policies
+* Delegate administration
+* Simplify management of large environments
+
+---
+
+## User Account Creation
+
+Several user accounts were created to simulate employees within different departments.
+
+### IT Department
+
+| Name        | Username |
+| ----------- | -------- |
+| Phyo Hein   | phyo     |
+| John Smith  | john     |
+| Sarah Jones | sarah    |
+
+### HR Department
+
+| Name       | Username |
+| ---------- | -------- |
+| Emma Brown | emma     |
+
+### Sales Department
+
+| Name         | Username |
+| ------------ | -------- |
+| James Wilson | james    |
+
+### User Account Purpose
+
+Active Directory user accounts provide:
+
+* Centralized authentication
+* Centralized password management
+* Permission management
+* Access to company resources
+
+Example domain login:
+
+```text
+phyo@corp.local
+```
+
+---
+
+## Security Group Creation
+
+Security groups were created to simplify permission management.
+
+### Groups
+
+| Group Name  |
+| ----------- |
+| IT_Users    |
+| HR_Users    |
+| Sales_Users |
+
+### Group Scope
+
+```text
+Global
+```
+
+### Group Type
+
+```text
+Security
+```
+
+### Purpose
+
+Security groups allow permissions to be assigned to groups rather than individual users.
+
+This follows Microsoft Active Directory best practices and simplifies administration.
+
+---
+
+## Group Membership
+
+### IT_Users
+
+```text
+IT_Users
+│
+├── Phyo Hein
+├── John Smith
+└── Sarah Jones
+```
+
+### HR_Users
+
+```text
+HR_Users
+│
+└── Emma Brown
+```
+
+### Sales_Users
+
+```text
+Sales_Users
+│
+└── James Wilson
+```
+
+---
+
+## Why Security Groups Are Important
+
+Without security groups, permissions would need to be assigned to each user individually.
+
+Example:
+
+```text
+IT Documentation Folder
+├── Phyo
+├── John
+└── Sarah
+```
+
+This becomes difficult to manage as the company grows.
+
+Using security groups:
+
+```text
+IT Documentation Folder
+└── IT_Users
+```
+
+All users who are members of the IT_Users group automatically receive the required permissions.
+
+This makes onboarding and offboarding employees significantly easier.
+
+---
+
+## Skills Demonstrated
+
+* Organizational Unit (OU) creation
+* Active Directory user administration
+* User account creation
+* Security group creation
+* Group membership management
+* Access control concepts
+* Authentication and authorization concepts
+* Enterprise user management practices
+
+---
+
+Examples include:
+
+* Organizational Unit structure
+* User account creation
+* Group creation
+* Group membership configuration
+
+---
+
+## Learning Outcome
+
+Through this exercise, I gained practical experience with Active Directory user and group administration, which are common responsibilities performed by IT Support and System Administration teams in enterprise environments.
+
